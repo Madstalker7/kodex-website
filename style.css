@@ -96,10 +96,16 @@ nav {
   padding: 2rem;
   gap: 60px;
 
-  /* Dark mode default */
   background: linear-gradient(135deg, #020617, #020617);
 
-  transition: background 0.5s ease;
+  border-radius: 20px;           /* <-- rounds the corners */
+  box-shadow: 
+    0 0 0 1px rgba(255, 255, 255, 0.04),
+    0 25px 45px rgba(0, 0, 0, 0.6); /* optional, for depth */
+}
+
+.hero {
+  border-radius: 0 0 28px 28px;  /* top-left, top-right, bottom-right, bottom-left */
 }
 
 .hero-text {
@@ -135,13 +141,13 @@ nav {
   border-radius: 10px;
   border: none;
   cursor: pointer;
-  background-color: #ff3f81; /* example vibrant color */
-  color: white;
+  background-color: #c3e91d; /* example vibrant color */
+  color: #050046;
   transition: transform 0.3s ease, background-color 0.3s ease;
 }
 
 #heroButton:hover {
-  background-color: #ff2a6c;
+  background-color: #088612;
   transform: scale(1.05);
 }
 
@@ -149,41 +155,67 @@ nav {
 
 
 /* =========================
-   SECTIONS
+   SECTIONS (Unified Section Cards)
 ========================= */
-section {
-  padding: 80px 0;
+
+/* All sections now have their own "card" style */
+.section-card {
+  background-color: #020617;         /* Section bg color */
+  border-radius: 20px;               /* Rounded corners */
+  padding: 4rem 2rem;                /* Internal spacing */
+  margin: 3rem auto;                 /* Space between sections */
+  max-width: 1100px;                 /* Keep content centered */
   position: relative;
+  box-shadow: 
+    0 0 0 1px rgba(255, 255, 255, 0.04),
+    0 25px 45px rgba(0, 0, 0, 0.6);  /* Adds depth for separation */
   transition: all 0.4s ease;
 }
 
-section h2 {
+/* Section headings */
+.section-card h2 {
   font-size: 36px;
   margin-bottom: 20px;
-  color: var(--accent-color);
+  color: var(--accent-color);        /* Accent for titles */
 }
 
-section p,
-section li {
+/* Section paragraphs and list items */
+.section-card p,
+.section-card li {
   font-size: 18px;
-  color: #cbd5e1;
+  color: #cbd5e1;                    /* Soft readable text */
 }
 
 /* =========================
-   SKILLS
+   SKILLS (Overrides within Section Cards)
 ========================= */
+#skills {
+  color: #e0e0e0;                    /* Section text */
+}
+
+#skills h2 {
+  color: #4ade80;                     /* Skills title accent */
+}
+
+#skills p {
+  color: #e5e7eb;                     /* Description text */
+}
+
 #skills ul {
   list-style: none;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 16px;
+  padding: 0;
 }
 
 #skills li {
-  background-color: #020617;
+  background-color: #000105;          /* Matches section-card bg */
   padding: 16px;
   border-radius: 10px;
   text-align: center;
+  color: #e9ec07;
+  text-shadow: 0 0 6px rgba(0, 242, 255, 0.35);
 }
 
 /* =========================
@@ -201,8 +233,9 @@ section li {
   transform: scale(1.08) translateY(-10px);
   background: rgba(255,255,255,0.04);
   box-shadow: 0 25px 60px rgba(0,0,0,0.6);
-  border-radius: 16px;
-  z-index: 20;
+  border-radius: 20px;   /* matches .section-card */
+  z-index: 50;           /* ensure it sits above blur overlay */
+  position: relative;    /* needed if z-index is applied */
 }
 
 body.focus-mode::before {
