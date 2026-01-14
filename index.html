@@ -18,7 +18,7 @@
       <ul class="nav-links">
         <li><a href="#home">Home</a></li>
         <li><a href="#about">About</a></li>
-        <li><a href="#skills">Skills</a></li>
+        <li><a href="#services">Services</a></li>
         <li><a href="#interests">Interests</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
@@ -50,41 +50,133 @@
   </p>
 </section>
 
-<!-- SKILLS -->
-<section id="skills" class="section-card container">
+<!-- SERVICES -->
+<section id="services" class="section-card container">
   <h2>What I Do</h2>
   <p>As a web designer, I specialize in the following areas:</p>
-  <ul>
-    <li>
-      HTML & CSS
-      <div class="progress-bar"><div class="progress"></div></div>
+
+  <ul class="services-list">
+
+    <li class="service-item">
+      <button class="service-header">
+        <span>HTML & CSS</span>
+      </button>
+
+      <div class="progress-bar">
+        <div class="progress"></div>
+      </div>
+
+      <div class="service-details">
+        <p>
+          Writing clean, semantic HTML and modern CSS to create structured,
+          accessible, and visually polished websites.
+        </p>
+      </div>
     </li>
-    <li>
-      JavaScript (Basics / Intermediate)
-      <div class="progress-bar"><div class="progress"></div></div>
+
+    <li class="service-item">
+      <button class="service-header">
+        <span>JavaScript (Basics / Intermediate)</span>
+      </button>
+
+      <div class="progress-bar">
+        <div class="progress"></div>
+      </div>
+
+      <div class="service-details">
+        <p>
+          Adding interactivity, dynamic behavior, and logic to websites
+          using clean and efficient JavaScript.
+        </p>
+      </div>
     </li>
-    <li>
-      Responsive Web Design
-      <div class="progress-bar"><div class="progress"></div></div>
+
+    <li class="service-item">
+      <button class="service-header">
+        <span>Responsive Web Design</span>
+      </button>
+
+      <div class="progress-bar">
+        <div class="progress"></div>
+      </div>
+
+      <div class="service-details">
+        <p>
+          Designing layouts that adapt perfectly across desktops, tablets,
+          and mobile devices.
+        </p>
+      </div>
     </li>
-    <li>
-      UI / UX Design Principles
-      <div class="progress-bar"><div class="progress"></div></div>
+
+    <li class="service-item">
+      <button class="service-header">
+        <span>UI / UX Design Principles</span>
+      </button>
+
+      <div class="progress-bar">
+        <div class="progress"></div>
+      </div>
+
+      <div class="service-details">
+        <p>
+          Creating intuitive interfaces focused on clarity, usability,
+          and user flow.
+        </p>
+      </div>
     </li>
-    <li>
-      Website Layout & Structure
-      <div class="progress-bar"><div class="progress"></div></div>
+
+    <li class="service-item">
+      <button class="service-header">
+        <span>Website Layout & Structure</span>
+      </button>
+
+      <div class="progress-bar">
+        <div class="progress"></div>
+      </div>
+
+      <div class="service-details">
+        <p>
+          Structuring pages for readability, balance, and strong visual
+          hierarchy.
+        </p>
+      </div>
     </li>
-    <li>
-      Performance Optimization
-      <div class="progress-bar"><div class="progress"></div></div>
+
+    <li class="service-item">
+      <button class="service-header">
+        <span>Performance Optimization</span>
+      </button>
+
+      <div class="progress-bar">
+        <div class="progress"></div>
+      </div>
+
+      <div class="service-details">
+        <p>
+          Improving load times, responsiveness, and overall site performance.
+        </p>
+      </div>
     </li>
-    <li>
-      Cross-Browser Compatibility
-      <div class="progress-bar"><div class="progress"></div></div>
+
+    <li class="service-item">
+      <button class="service-header">
+        <span>Cross-Browser Compatibility</span>
+      </button>
+
+      <div class="progress-bar">
+        <div class="progress"></div>
+      </div>
+
+      <div class="service-details">
+        <p>
+          Ensuring consistent behavior and appearance across all modern browsers.
+        </p>
+      </div>
     </li>
+
   </ul>
 </section>
+
 
 <!-- HOBBIES & INTERESTS -->
 <section id="interests" class="section-card container">
@@ -123,6 +215,20 @@
 
  <!-- JAVASCRIPT -->
   <script src="script.js"></script>
+
+  <script>
+  document.querySelectorAll("#services .service-header").forEach(btn => {
+    btn.addEventListener("click", () => {
+      const item = btn.closest(".service-item");
+
+      document
+        .querySelectorAll("#services .service-item")
+        .forEach(i => i !== item && i.classList.remove("active"));
+
+      item.classList.toggle("active");
+    });
+  });
+</script>
 
 </body>
 </html>

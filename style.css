@@ -165,16 +165,21 @@ nav {
    MOBILE HERO
 ========================= */
 @media (max-width: 768px) {
+  .hero {
+    min-height: 65vh;                /* shorter hero = less crop */
+    padding: 2rem 1.5rem;
+
+    background-size: contain;        /* ⬅ FULL image visible */
+    background-position: top center; /* ⬅ keeps important area */
+    background-color: #050046;       /* fills empty space cleanly */
+  }
+
   .hero-text {
     margin-left: 0;
     align-items: center;
     text-align: center;
   }
 }
-
-
-/* Removed .hero-image CSS entirely */
-
 
 /* =========================
    SECTIONS (Unified Section Cards)
@@ -209,21 +214,24 @@ nav {
 }
 
 /* =========================
-   SKILLS (Overrides within Section Cards)
+   SERVICES (Section Card)
 ========================= */
-#skills {
-  color: #e0e0e0;                    /* Section text */
+#services {
+  color: #e0e0e0;
 }
 
-#skills h2 {
-  color: #4ade80;                     /* Skills title accent */
+/* Title */
+#services h2 {
+  color: #4ade80;
 }
 
-#skills p {
-  color: #e5e7eb;                     /* Description text */
+/* Description */
+#services p {
+  color: #e5e7eb;
 }
 
-#skills ul {
+/* Services Grid */
+#services ul {
   list-style: none;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -231,14 +239,65 @@ nav {
   padding: 0;
 }
 
-#skills li {
-  background-color: #000105;          /* Matches section-card bg */
+/* Service Card */
+#services .service-item {
+  background-color: #000105;
   padding: 16px;
   border-radius: 10px;
   text-align: center;
   color: #e9ec07;
   text-shadow: 0 0 6px rgba(0, 242, 255, 0.35);
+
+  cursor: pointer;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
+
+/* Hover Lift */
+#services .service-item:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.6);
+}
+
+/* Clickable Title */
+#services .service-header {
+  all: unset;
+  display: block;
+  width: 100%;
+  font-weight: 700;
+  font-size: 1.1rem;
+  margin-bottom: 10px;
+  cursor: pointer;
+  color: #e9ec07;
+}
+
+/* Progress Bar (unchanged behavior) */
+#services .progress-bar {
+  margin: 10px 0;
+}
+
+/* Hidden Details */
+#services .service-details {
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: max-height 0.35s ease, opacity 0.3s ease;
+}
+
+/* Expanded State */
+#services .service-item.active .service-details {
+  max-height: 220px;
+  opacity: 1;
+}
+
+/* Details Text */
+#services .service-details p {
+  margin-top: 10px;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #d1d5db;
+  text-shadow: none;
+}
+
 
 /* =========================
    BLUR / FOCUS MODE
@@ -304,4 +363,3 @@ body.focus-mode::before {
     font-size: 18px;
   }
 }
-
