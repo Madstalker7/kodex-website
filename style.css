@@ -89,67 +89,89 @@ nav {
    HERO SECTION
 ========================= */
 .hero {
+  position: relative;
   display: flex;
-  justify-content: center;
   align-items: center;
   min-height: 90vh;
-  padding: 2rem;
-  gap: 60px;
+  padding: 3rem;
 
-  background: linear-gradient(135deg, #020617, #020617);
+  background-image: url("images/hero-bg.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 
-  border-radius: 20px;           /* <-- rounds the corners */
-  box-shadow: 
+  border-radius: 0 0 28px 28px;
+  box-shadow:
     0 0 0 1px rgba(255, 255, 255, 0.04),
-    0 25px 45px rgba(0, 0, 0, 0.6); /* optional, for depth */
-}
+    0 30px 60px rgba(0, 0, 0, 0.65);
 
-.hero {
-  border-radius: 0 0 28px 28px;  /* top-left, top-right, bottom-right, bottom-left */
+  overflow: hidden;
 }
 
 .hero-text {
-  flex: 1;
-  max-width: 800px;
+  position: relative;
+  z-index: 2;
+
+  max-width: 700px;
+  margin-left: auto; /* ⬅ THIS pushes it to the RIGHT */
+
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
   gap: 1.5rem;
+
+  text-align: left;
 }
+
 
 /* HERO HEADING */
 .hero h2 {
-  font-size: 52px;
-  font-weight: 700;
+  font-size: clamp(36px, 5vw, 56px);
+  font-weight: 800;
   color: var(--accent-color);
-  margin-bottom: 20px;
+  letter-spacing: -0.5px;
 }
 
 /* HERO PARAGRAPH */
 .hero p {
   font-size: 20px;
-  color: #cbd5e1;
-  line-height: 1.6;
+  color: #d8fd06;
+  line-height: 1.7;
+  max-width: 680px;
 }
 
 
 /* HERO BUTTON */
 #heroButton {
-  padding: 0.8rem 1.6rem;
+  align-self: flex-start;
+  padding: 0.9rem 1.8rem;
   font-size: 1.1rem;
-  border-radius: 10px;
+  font-weight: 600;
+  border-radius: 12px;
   border: none;
   cursor: pointer;
-  background-color: #c3e91d; /* example vibrant color */
+
+  background-color: #c3e91d;
   color: #050046;
-  transition: transform 0.3s ease, background-color 0.3s ease;
+
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 #heroButton:hover {
-  background-color: #088612;
-  transform: scale(1.05);
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 10px 30px rgba(195, 233, 29, 0.4);
 }
+
+/* =========================
+   MOBILE HERO
+========================= */
+@media (max-width: 768px) {
+  .hero-text {
+    margin-left: 0;
+    align-items: center;
+    text-align: center;
+  }
+}
+
 
 /* Removed .hero-image CSS entirely */
 
@@ -244,49 +266,6 @@ body.focus-mode::before {
   inset: 0;
   background: rgba(0,0,0,0.55);
   z-index: 5;
-}
-
-/* =========================
-   SIDEBAR
-========================= */
-#sidebar {
-  position: fixed;
-  top: 0;
-  left: -260px;
-  width: 260px;
-  height: 100vh;
-  background-color:  #0f172a;
-  padding: 24px;
-  transition: left 0.4s ease;
-  z-index: 2000;
-}
-
-#sidebar.active {
-  left: 0;
-}
-
-#sidebar ul {
-  list-style: none;
-  margin-top: 40px;
-}
-
-#sidebar li {
-  margin-bottom: 20px;
-}
-
-#sidebar a {
-  color: var(--text-color);
-  font-size: 18px;
-  text-decoration: none;
-}
-
-.menu-icon,
-#closeSidebar {
-  background: none;
-  border: none;
-  font-size: 26px;
-  color: var(--text-color);
-  cursor: pointer;
 }
 
 /* =========================
