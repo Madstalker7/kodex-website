@@ -93,62 +93,34 @@ html {
 /* =========================
    HERO SECTION
 ========================= */
-
 .hero {
   position: relative;
-  min-height: 90vh; /* full viewport height */
-  
   background-image: url("images/hero-bg.jpg");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-
-  border-radius: 0 0 28px 28px;
-  box-shadow:
-    0 0 0 1px rgba(255, 255, 255, 0.04),
-    0 30px 60px rgba(0, 0, 0, 0.65);
-
-  overflow: hidden;
-}
-
-/* =========================
-   MOBILE HERO
-========================= */
-@media (max-width: 768px) {
-  .hero {
-    min-height: 90vh;          /* keep full-screen height */
-    padding: 0;                /* no extra padding so bg fills fully */
-
-    background-size: cover;    /* ensures bg covers entire hero */
-    background-position: center center; /* keeps it centered on phone */
-    background-repeat: no-repeat;
-
-    border-radius: 0 0 28px 28px;
-    box-shadow:
-      0 0 0 1px rgba(255, 255, 255, 0.04),
-      0 30px 60px rgba(0, 0, 0, 0.65);
-  }
-}
-
-/* =========================
-   HERO FADE-IN
-========================= */
-.hero {
-  position: relative;
-  min-height: 90vh;
-  background-image: url("images/hero-bg.jpg");
-  background-size: cover;
+  background-size: cover;           /* fills section nicely */
   background-position: center center;
   background-repeat: no-repeat;
   border-radius: 0 0 28px 28px;
   box-shadow:
     0 0 0 1px rgba(255, 255, 255, 0.04),
     0 30px 60px rgba(0, 0, 0, 0.65);
-
-  opacity: 0;                /* start invisible */
-  animation: fadeInHero 1.5s ease-in-out forwards; /* fade in */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 60vh;                 /* matches other sections more closely */
+  padding: 60px 20px;               /* consistent spacing */
+  opacity: 0;
+  animation: fadeInHero 1.5s ease-in-out forwards;
 }
 
+.hero-container {
+  width: 90%;          
+  max-width: 1200px;    /* match other sections */
+  margin: 0 auto;
+}
+
+/* =========================
+   HERO FADE-IN ANIMATION
+========================= */
 @keyframes fadeInHero {
   from { opacity: 0; }
   to { opacity: 1; }
@@ -159,17 +131,18 @@ html {
 ========================= */
 @media (max-width: 768px) {
   .hero {
-    min-height: 90vh;
-    padding: 0;
+    background-image: url("images/hero-bg-mobile.jpg");
     background-size: cover;
-    background-position: center center;
-    background-repeat: no-repeat;
-    border-radius: 0 0 28px 28px;
-    box-shadow:
-      0 0 0 1px rgba(255, 255, 255, 0.04),
-      0 30px 60px rgba(0, 0, 0, 0.65);
+    background-position: top center;
+    min-height: 50vh;           /* smaller on mobile */
+    padding: 40px 15px;
+  }
+
+  .hero-container {
+    width: 95%;
   }
 }
+
 
 /* =========================
    SECTIONS (Unified Section Cards)
